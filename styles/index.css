@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'UDEV Gothic';
+  src: url('/fonts/UDEVGothic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UDEV Gothic';
+  src: url('/fonts/UDEVGothic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --c-bg: #0a0a0f;
+  --c-surface: rgba(255, 255, 255, 0.03);
+  --c-border: rgba(255, 255, 255, 0.08);
+  --c-text: #fff;
+  --c-text-dim: rgba(255, 255, 255, 0.5);
+  --c-accent: #6ee7b7;
+  --c-accent-2: #818cf8;
+  --c-accent-3: #f472b6;
+}
+
+/* ─── Base Layout ─── */
+.slidev-layout {
+  font-family: 'UDEV Gothic', 'SF Mono', 'Fira Code', monospace !important;
+  color: var(--c-text);
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  letter-spacing: 0.01em;
+}
+
+.slidev-layout * {
+  font-family: 'UDEV Gothic', 'SF Mono', 'Fira Code', monospace !important;
+  color: var(--c-text);
+}
+
+.slidev-layout code,
+.slidev-layout pre {
+  font-family: 'UDEV Gothic', monospace !important;
+}
+
+.slidev-layout h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Gradient Text (重要なキーワードのみ) ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--c-accent-3), var(--c-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, var(--c-accent), var(--c-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glass Card ─── */
+.glass-card {
+  background: var(--c-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Tags ─── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--c-surface);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Divider ─── */
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent
+  );
+  margin: 1.5rem 0;
+}
+
+/* ─── Section Label ─── */
+.section-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--c-text-dim);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--c-border);
+}
+
+/* ─── Subtle scan line effect ─── */
+.slidev-page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.015) 2px,
+    rgba(0, 0, 0, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── Code block styling ─── */
+.slidev-layout .slidev-code {
+  border-radius: 10px !important;
+  border: 1px solid var(--c-border) !important;
+}
+
+/* ─── Smooth transitions for v-click ─── */
+.slidev-vclick-target {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0 !important;
+  transform: translateY(8px);
+  filter: blur(2px);
+}
