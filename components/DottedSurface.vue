@@ -138,5 +138,6 @@ onMounted(() => {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  filter: blur(2px);
 }
 </style>
